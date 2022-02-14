@@ -1,7 +1,8 @@
-package com.lucascabral.moviesapp
+package com.lucascabral.moviesapp.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lucascabral.moviesapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
