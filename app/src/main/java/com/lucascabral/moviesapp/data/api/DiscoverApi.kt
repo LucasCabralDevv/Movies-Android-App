@@ -1,4 +1,4 @@
-package com.lucascabral.moviesapp.data
+package com.lucascabral.moviesapp.data.api
 
 import com.lucascabral.moviesapp.data.model.BasePaginationRemote
 import com.lucascabral.moviesapp.data.model.MovieRemote

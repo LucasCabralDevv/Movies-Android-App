@@ -1,5 +1,6 @@
 package com.lucascabral.moviesapp.data.model
 
+import com.lucascabral.moviesapp.domain.model.Movie
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -19,6 +20,23 @@ data class MovieRemote(
     @SerialName("video") val video: Boolean,
     @SerialName("vote_average") val voteAverage: Double,
     @SerialName("vote_count") val voteCount: Int
+)
+
+fun MovieRemote.toDomain() = Movie(
+    adult = this.adult,
+    backdropPath = this.backdropPath,
+    genreIds = this.genreIds,
+    id = this.id,
+    originalLanguage = this.originalLanguage,
+    originalTitle = this.originalTitle,
+    overview = this.overview,
+    popularity = this.popularity,
+    posterPath = this.posterPath,
+    releaseDate = this.releaseDate,
+    title = this.title,
+    video = this.video,
+    voteAverage = this.voteAverage,
+    voteCount = this.voteCount
 )
 
 @Serializable
