@@ -29,6 +29,7 @@ class ServiceProvider(
                 maxSize = 1024L * 1024L
             )
         )
+        .addInterceptor(TMDBInterceptor())
         .build()
 
     private val retrofit = Retrofit.Builder()
@@ -37,5 +38,5 @@ class ServiceProvider(
         .addConverterFactory(json.asConverterFactory(contentType))
         .build()
 
-    fun <API> createService(apiClass: Class<API>) : API = retrofit.create(apiClass)
+    fun <API> createService(apiClass: Class<API>): API = retrofit.create(apiClass)
 }

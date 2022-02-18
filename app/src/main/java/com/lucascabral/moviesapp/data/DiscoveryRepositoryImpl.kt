@@ -12,7 +12,7 @@ class DiscoveryRepositoryImpl @Inject constructor(
 
     override suspend fun getMovies(): List<Movie> {
         return try {
-            discoverService.getMovies(BuildConfig.tokenTMDB).results.map { movieRemote ->
+            discoverService.getMovies().results.map { movieRemote ->
                 movieRemote.toDomain()
             }
         } catch (exc: Exception) {
