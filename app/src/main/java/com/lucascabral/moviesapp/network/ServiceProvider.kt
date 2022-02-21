@@ -6,6 +6,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.Cache
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -20,6 +21,10 @@ class ServiceProvider(
         ignoreUnknownKeys = true
     }
 
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+
     private val client = OkHttpClient.Builder()
         .connectTimeout(5, TimeUnit.SECONDS)
         .callTimeout(15, TimeUnit.SECONDS)
@@ -30,6 +35,7 @@ class ServiceProvider(
             )
         )
         .addInterceptor(TMDBInterceptor())
+        .addInterceptor(loggingInterceptor)
         .build()
 
     private val retrofit = Retrofit.Builder()
